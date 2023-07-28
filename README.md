@@ -53,9 +53,9 @@ Ensure you have the following software installed on your machine:
 
 ### Usage
 
-Explain how to use the "DBT Sump Code Challenge" project for data transformation and analysis.
+The "DBT Sump Code Challenge" project for data transformation and analysis used as such.
 
-1. **Data Extraction and Loading:**
+**Data Extraction and Loading:**
 In order to solve this problem, we have provided the following three datasets in csv format
 - Stores
 - Devices
@@ -72,7 +72,7 @@ The files are loaded in the dbt project:
 3. Refer to seeds in downstream models using the ref function. 
 
 
-2. **Running DBT Models:**
+**Running DBT Models:**
 The data models work as follows:
 
 The first model is a preperatory model - "basic_model.sql". It merges the three dataset (Stores, Devices and Transactions csv's from stage 1) into a unified database. 
@@ -86,7 +86,7 @@ Each of the questions above is dealt by a different model.
 5. time_to_fifth_trx - The average days and total number of stores for a store to generate 5 transactions.
 
 
-### comments and assumptions
+**Comments and assumptions**
 - top store: 
 Unsuccessful transactions (with statuses canceled and refused) are removed from the aggregation. 
 
