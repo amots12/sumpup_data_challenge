@@ -6,6 +6,6 @@
 {{ config(materialized='table') }}
 
 
-select country, typology, avg(amount) average_amount
+select  typology, country, avg(amount) average_amount
 from {{ ref('basic_model')}}
 group by 1,2

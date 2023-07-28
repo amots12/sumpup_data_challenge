@@ -45,8 +45,10 @@ Ensure you have the following software installed on your machine:
 ### Installation
 
 1. Clone this repository to your local machine:
-git clone https://github.com/amots12/dbt-sump-code-challenge.git
-cd dbt-sump-code-challenge
+
+    git clone https://github.com/amots12/dbt-sump-code-challenge.git
+
+    cd dbt-sump-code-challenge
 
 
 ### Usage
@@ -59,16 +61,52 @@ In order to solve this problem, we have provided the following three datasets in
 - Devices
 - Transactions
 
-The files were pushed to a 'Seed' folder and then processed .
-dbt seed 
+The files are loaded in the dbt project:
+
+1. Addded to the seeds directory e.g. '/seeds'
+ 
+2. Run the dbt seed command — a new table will be created in the warehouse
+
+    dbt seed 
+
+3. Refer to seeds in downstream models using the ref function. 
 
 
 2. **Running DBT Models:**
-The data models works as follows:
-The "basic_model.sql" merges three different dataset into a unified database. 
+The data models work as follows:
+
+The first model is a preperatory model - "basic_model.sql". It merges the three dataset (Stores, Devices and Transactions csv's from stage 1) into a unified database. 
+
 Each of the questions above is dealt by a different model.
 
+1. top_store - to find the 10 most active stores by amount.
+2. top_product - to find the 10 most sold items by name. 
+3. trx_per_type - the proportion of transactions carried out using different device types out of the total number of transactions in the dataset.
+4. average_trx_typo_country - The average amount of a transaction by each typology and country.
+5. time_to_fifth_trx - The average days and total number of stores for a store to generate 5 transactions.
+
+
+### comments and assumptions
+- top store: 
+-- Unsuccessful transactions (with statuses canceled and refused) are removed from the aggregation. 
+
+- top product: 
+-- for the implementation of the answer I used product_name instead of SKUs. 
+-- It would be more efficient to use SKUs instead.
+-- The dataset seems to be corrupted and only two SKUs are present. 
+-- The "product_name" column is used as a temporary solution.
+
+- trx_per_type:
+-- the computation takes into account all of the dataset asa base.
+
+
+- time_to_fifth_trx:
+-- time is measured in days.
+-- the scripts computes the first transaction's timestamp as the initiation date. 
+
+
 to run the models use the command 
+    
     dbt run
 
 
@@ -77,10 +115,10 @@ By the end of a successful run dbt stores the output in the database (Postgres).
 Retrieve the data by using the reference {{ ref{'<model-name>'}}} ## (change model name to the desired model)
 
 
-
 ### Folder Structure
 
 Directories in the project:
+
 ├── seeds
 │ ├── raw # Raw data files from the data source
 ├── models # DBT models for data transformation
