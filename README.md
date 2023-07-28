@@ -88,16 +88,16 @@ Each of the questions above is dealt by a different model.
 
 ### comments and assumptions
 - top store: 
--- Unsuccessful transactions (with statuses canceled and refused) are removed from the aggregation. 
+Unsuccessful transactions (with statuses canceled and refused) are removed from the aggregation. 
 
 - top product: 
--- for the implementation of the answer I used product_name instead of SKUs. 
--- It would be more efficient to use SKUs instead.
--- The dataset seems to be corrupted and only two SKUs are present. 
--- The "product_name" column is used as a temporary solution.
+for the implementation of the answer I used product_name instead of SKUs. 
+It would be more efficient to use SKUs instead.
+The dataset seems to be corrupted and only two SKUs are present. 
+The "product_name" column is used as a temporary solution.
 
 - trx_per_type:
--- the computation takes into account all of the dataset asa base.
+the computation takes into account all of the dataset asa base.
 
 
 - time_to_fifth_trx:
@@ -119,15 +119,9 @@ Retrieve the data by using the reference {{ ref{'<model-name>'}}} ## (change mod
 
 Directories in the project:
 
-├── seeds
-│ ├── raw # Raw data files from the data source
-├── models # DBT models for data transformation
-├── dbt_project.yml # DBT project configuration
-├── .gitignore
-└── README.md
 
 
-- **data/raw**: Contains raw data files obtained from the data source.
+- **seeds**: Contains raw data files obtained from the data source.
 - **models**: Contains DBT models for data transformation and analytical use cases.
 - **dbt_project.yml**: Configuration file for the DBT project.
 - **.gitignore**: Specifies files and directories to be ignored by Git.
