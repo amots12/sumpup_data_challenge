@@ -1,0 +1,28 @@
+
+version: 2
+
+models:
+  - name: top_store
+    description: "most active stores"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+#        tests:
+#          - unique
+#          - not_null
+
+  - name: top_product
+    description: "most selling products"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+  #      tests:
+  #        - unique
+  #        - not_null
+
+
+  - name: average_trx_typo_country
+    description: "country and typology average transaction amount"
+    columns:
+      - name: id
+        description: "The primary key for this table"
