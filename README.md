@@ -161,6 +161,14 @@ After the pull request is merged, you can delete the branch used for the pull re
 10. Repeat (Contributor)
 If you have more changes to contribute, create new branches and follow the same process for each new pull request.
 
+### Data quality asssurance and integrity 
+
+1. Applying unit testing structure
+In order to insure data integrity I would deploy testing as part of the dbt run flow.
+2. Testing logic - 
+The basic logic makes first level testing. The test verifies the output of a model is not empty. And checks for the expected data type (e.g. float for average transaction amount, list of strings in top_product etc.)
+3. Business logic
+To make sure data is within reasonable bounds and to insure continuity -  run statistical tests on business critic metrics. e.g. compare model outputs to historical figures.
 
 
 ### Contact
