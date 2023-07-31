@@ -2,6 +2,12 @@
 version: 2
 
 models:
+- name: basic_model
+    description: "combines all tables to a single dataset"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+
   - name: top_store
     description: "most active stores"
     columns:
@@ -23,6 +29,19 @@ models:
 
   - name: average_trx_typo_country
     description: "country and typology average transaction amount"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+
+  - name: time_to_fifth_trx
+    description: "the average timespan in days it takes to a store to reach five transactions"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+
+
+  - name: trx_per_type
+    description: "share of transaction per device type"
     columns:
       - name: id
         description: "The primary key for this table"
